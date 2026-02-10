@@ -1,0 +1,265 @@
+/*font faces*/
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*no scroll*/
+::-webkit-scrollbar{display: none;}
+body{margin: 0px;-ms-overflow-style: none;}
+
+/*app bar*/
+#app_bar {
+    background-color: white;
+    z-index:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+}
+#logo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*content container*/
+#container{
+    z-index: 0;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+.text_container{
+    width: calc(100% - 10px);
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: "JalnanGothic";
+}
+.text_large{
+    font-size: 40px!important;
+}
+.text_medium{
+    font-size: 30px!important;
+}
+.gothic{
+    font-family: "JalnanGothic"!important;
+}
+.jalnan{
+    font-family: "yg-jalnan"!important;
+}
+.text_small{
+    font-size: 20px!important;
+}
+.header{
+    font-family: "yg-jalnan";
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
+label {
+    user-select: none;
+    margin-left: 20px;
+    font-size: 25px;
+    font-family: "JalnanGothic";
+}
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input>textarea,input{
+    padding: 2px;
+    font-family: "JalnanGothic";
+    font-size: 30px;
+    width: 100%;
+    height: 1em;
+    border: none;
+    resize: none;
+    -moz-appearance: textfield;
+    overflow-y: hidden;
+}
+.input>textarea{
+    font-size: 20px;
+    height: 5em;
+    min-height: 5em;
+    max-height: 20em;
+}
+.input{
+    position: relative;
+    display: inline-block;
+    margin-left: 25px;
+    width: 85%;
+}
+.input::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 90%;
+    height: 4px;
+    background-color: #000;
+    transition: all 0.5s ease;
+}
+
+.input:hover::after {
+    width: 100%;
+    background-color: red;
+}
+.input>textarea:focus,input:focus{
+    outline: none;
+}
+
+
+
+
+.subject{
+    margin: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+}
+.subject > div{
+    margin-top: 40px;
+}
+.subject > div > img{
+    user-select: none;
+    width: 100%;
+    height: 150px;
+}
+.subject > div > .name{
+    font-weight: bold;
+    font-size: 40px;
+}
+.subject > div > span{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    box-shadow:
+    0 1px 8px rgba(0,0,0,0.12),
+    0 1px 4px rgba(0,0,0,0.24),
+    0 1px 2px rgba(0,0,0,0.24);
+}
+/*default elements*/
+#tabs{
+    margin-top: -50px;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index:3;
+    transition: all 0.3s ease;
+}
+.tab_closed{
+    transform: translateX(-100%);
+}
+
+#tab_menu{
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#tab_menu > div:not(.selected){
+    user-select: none;
+    padding-left: 50px;
+    font-size: 30px;
+    width: fit-content;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+#tab_menu > div:hover:not(.selected){
+    transform: scale(1.1);
+}
+.selected{
+    user-select: none;
+    padding-left: 50px;
+    font-size: 30px;
+    width: fit-content;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+
+
+
+
+/*svg as clickable*/
+svg:not(.non-clickable){cursor: pointer;transition: all 0.3s ease;}
+svg:not(.non-clickable):hover{transform: scale(1.1);}
+path{transition: all 0.3s ease;}
+
+
+#more{transform: translateX(100vw);z-index: 3;}
+#more1{transform-origin: 10px 5px;}
+#more2{transform-origin: 10px 10px;}
+#more3{transform-origin: 10px 15px;}
+#more.more_opened{transform: translateX(calc(100vw - 50px));}
+.more_opened > g > path:nth-child(1){transform: rotate(-45deg) scaleX(0.8) translate(-1.7px,1.7px);}
+.more_opened > g > path:nth-child(2){transform: rotate(180deg) scale(0);}
+.more_opened > g > path:nth-child(3){transform: rotate(45deg) scaleX(0.8) translate(-1.7px,-1.7px);}
+
+
+
+/*입부신청 버튼*/
+#apply{
+    z-index: 2;
+    user-select: none;
+    font-family: "JalnanGothic";
+    border-radius: 100px;
+    border: 0px;
+    background-color: black;
+    font-size: medium;
+    color: white;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #000;
+}
+#apply:hover{
+    transform: scale(1.1);
+}
+#apply:active{
+    background-color: #4dce02;
+    box-shadow: 0 0 10px #153a00;
+}
+
+
+/*제출하기 버튼*/
+#submit{
+    user-select: none;
+    font-family: "JalnanGothic";
+    border-radius: 50px;
+    border: 0px;
+    background-color: black;
+    font-size: medium;
+    color: white;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    height: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #000;
+}
+#submit:hover{
+    transform: scale(1.1);
+}
+#submit:active{
+    background-color: #4dce02;
+    box-shadow: 0 0 10px #153a00;
+}

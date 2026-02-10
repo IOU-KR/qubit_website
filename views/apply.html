@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUBIT 입부신청</title>
+    <link rel="icon" href="/image/Qubit3.svg"/>
+    <link rel="stylesheet" href="/styles/container.css"/>
+</head>
+<body>
+    <div id="tabs" class="tab_closed">
+        <svg id="more" width="50" height="50" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#000000" stroke="none">
+                <path id="more1" d="M4 4H16V6H4Z"/>
+                <path id="more2" d="M4 9H16V11H4Z"/>
+                <path id="more3" d="M4 14H16V16H4Z"/>
+            </g>
+        </svg>
+        <div id="tab_menu">
+            <div id="main">소개</div> <br>
+            <div id="branding">브랜딩</div> <br>
+            <div id="apply2" class="selected">입부신청</div> <br>
+            <div id="intro">회장 소개</div> <br>
+            <div id="results">합격자 발표</div>
+        </div>
+    </div>
+    <div id="app_bar" class="card">
+        <svg id="logo" width="100" height="30" viewBox="0 0 1656 468" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#000000" stroke="none" fill-rule="evenodd">
+            <path d="M391 468L317.498 394.913C317.498 394.913 280 428 207 428C89.7 428 0 335.267 0 214C0 92.7334 89.7 0 207 0C324.3 0 414 92.7333 414 214C413.667 271 392.495 309.074 392.495 309.074L471.418 387.582L391 468M207 321C148.633 321 104 274.633 104 214C104 153.367 148.633 107 207 107C265.933 107 311 153.367 311 214C311 274.633 265.934 321 207 321"/>
+            <path d="M626 430C531.933 430 460 350.267 460 246V4H559.6V244.455C559.6 291.559 590.587 332.775 626 332.775C661.413 332.775 692.4 291.559 692.4 244.455V4H792V246C792 350.267 720.067 430 626 430"/>
+            <path d="M822 430V4H971.72C1013.81 4 1098 46.6666 1098 132C1098 180.167 1059.53 217 1059.53 217C1059.53 217 1098 253.833 1098 302C1098 387.333 1013.81 430 971.722 430H822M920 90H943.881C969.136 90 998 107.879 998 131C998 154.121 969.136 172 943.881 172H920V90M920 262H943.881C969.136 262 998 279.879 998 303C998 326.121 969.136 344 943.881 344H920z"/>
+            <path d="M1140 432V4H1252V432z"/>
+            <path d="M1416 432V114H1286V4H1656V114H1528V432z"/>
+            </g>
+        </svg>
+    </div>
+    <div id="container" style="overflow-x: hidden;">
+        <div class="header">동아리 가입 신청서</div>
+        <br>
+        <div hidden id="closed" class="text_container" style="color: red;">현재 입부신청이 마감된 상태입니다.</div><br>
+        <div class="text_container">신청서 작성시 유의사항</div><br>
+        <div class="text_container text_small" style="color: red;">1. 허위 정보 기재 시 불이익이 발생할 수 있습니다.</div>
+        <div class="text_container text_small" style="color: red;">2. 언어 모델(예: GPT) 사용 시 불이익이 있을 수 있습니다. 솔직하게 작성해 주세요.</div>
+        <div class="text_container text_small" style="color: grey;">3. 저희는 코딩에 흥미가 있고 수업에 잘 참여가 가능한 학생을 원합니다.</div>
+        <div class="text_container text_small" style="color: grey;">4. 선택 항목은 생략할 수 있으나 작성 시 유리하게 작용할 수 있습니다. (웬만하면 써주세요.)</div>
+        <div class="text_container text_small" style="color: grey;">5. 입력란은 중요한 순서대로 정렬되어 있습니다. (비밀번호 제외)</div>
+        <div class="text_container text_small" style="color: grey;">6. 수정을 원하시면 수정용 비밀번호를 입력하고 기타 내용을 수정 후 제출해 주십시오.</div>
+        <div class="text_container text_small" style="color: grey;">7. 비밀번호는 해시(hash)로 저장됩니다.</div>
+<br><br>
+        <label class="label">실명</label><br>
+        <div class="input"><input id="real-name" maxlength="20" placeholder="홍길동"></input></div><br><br>
+        <label class="label">학반번호 (1101)</label><br>
+        <div class="input"><input id="id-number" type="number" maxlength="5" placeholder="1101" ></input></div><br><br>
+        <label class="label">자기 진로와의 연관성 (선택)</label><br>
+        <div class="input"><textarea id="career" oninput="fit(this)" maxlength="500" placeholder="저의 진로는 ...&#10;(최대 500자)" ></textarea></div><br><br>
+        <label class="label">이 동아리를 선택한 이유 (선택)</label><br>
+        <div class="input"><textarea id="reason" oninput="fit(this)" maxlength="500" placeholder="이 동아리를 선택한 이유는 ...&#10;(최대 500자)" ></textarea></div><br><br>
+        <label class="label">사용해본 코딩 언어 및 기타 기술 (선택)</label><br>
+        <div class="input"><textarea id="skills" oninput="fit(this)" maxlength="500" placeholder="엔트리, 파이썬, 리눅스, ...&#10;(최대 500자)" ></textarea></div><br><br>
+        <label class="label">그외 자기소개 (선택)</label><br>
+        <div class="input"><textarea id="other" oninput="fit(this)" maxlength="500" placeholder="저는 ...&#10;(최대 500자)" ></textarea></div><br><br><br>
+        <br>
+        <label class="label">수정용 비밀번호</label><br>
+        <div class="input"><input class="text_small" id="password" type="password" maxlength="500" placeholder="최소 9자"></input></div><br><br>
+        <label class="label">비밀번호 확인</label><br>
+        <div class="input"><input class="text_small" id="confirm-password" type="password" maxlength="500" placeholder="최소 9자"></input></div><br><br>
+        <button id="submit">제출하기</button>
+    </div>
+    <script src="/scripts/index.js"></script>
+    <script>
+        function fit(element) {
+            element.style.height = '5em';
+            element.style.height = element.scrollHeight+'px';
+        }
+        (() => {
+            const realNameInput = document.getElementById('real-name');
+            const idNumberInput = document.getElementById('id-number');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const careerInput = document.getElementById('career');
+            const reasonInput = document.getElementById('reason');
+            const skillsInput = document.getElementById('skills');
+            const otherInput = document.getElementById('other');
+            const submitButton = document.getElementById('submit');
+            const closedDiv = document.getElementById('closed');
+
+            window.addEventListener('beforeunload', event => {
+                if (realNameInput.value || idNumberInput.value || passwordInput.value || careerInput.value || reasonInput.value || skillsInput.value || otherInput.value) {
+                    event.preventDefault();
+                    event.returnValue='';
+                }
+            });
+
+            let closed = false;
+            fetch('/api/deadline', { method: 'GET' }).then(r => r.json()).then(response => {
+                const deadline = new Date(response.deadline);
+                const result = new Date(response.result);
+                
+                if (Date.now() > deadline.getTime()) {
+                    closed = true;
+                    closedDiv.hidden = false;
+
+                    realNameInput.disabled = true;
+                    idNumberInput.disabled = true;
+                    passwordInput.disabled = true;
+                    confirmPasswordInput.disabled = true;
+                    careerInput.disabled = true;
+                    reasonInput.disabled = true;
+                    skillsInput.disabled = true;
+                    otherInput.disabled = true;
+                    submitButton.disabled = true;
+                }
+            });
+
+
+            submitButton.addEventListener('click', () => {
+                try {
+                    if (closed) throw new Error('입부 신청이 마감되었습니다.');
+
+                    if (!realNameInput.value || realNameInput.value.length<2 || realNameInput.value.length>20) {
+                        throw new Error('실명이 올바르지 않습니다.');
+                    }
+                    if (!idNumberInput.value || idNumberInput.value.length<4 || 5<idNumberInput.value.length || isNaN(idNumberInput.value)) {
+                        throw new Error('학반번호가 올바르지 않습니다.');
+                    }
+
+                    let parsedIdNumber = parseInt(idNumberInput.value);
+
+                    if (parsedIdNumber < 0 || parsedIdNumber !== parseFloat(idNumberInput.value)) {
+                        throw new Error('학반번호가 올바르지 않습니다.');
+                    }
+                    if (!passwordInput.value || passwordInput.value.length<9) {
+                        throw new Error('비밀번호는 최소 9글자여야 합니다.');
+                    }
+                    if (!careerInput.value || careerInput.value.length>500) {
+                        throw new Error('자기 진로와의 연관성이 너무 깁니다.');
+                    }
+                    if (!reasonInput.value || reasonInput.value.length>500) {
+                        throw new Error('이 동아리를 선택한 이유가 너무 깁니다.');
+                    }
+                    if (!skillsInput.value || skillsInput.value.length>500) {
+                        throw new Error('사용해본 언어 및 기타 기술이 너무 깁니다.');
+                    }
+                    if (!otherInput.value || otherInput.value.length>500) {
+                        throw new Error('그외 자기소개가 너무 깁니다.');
+                    }
+
+                    if (passwordInput.value !== confirmPasswordInput.value) {
+                        throw new Error('비밀번호가 확인용 비밀번호와 일치하지 않습니다.');
+                    }
+
+
+                    if (confirm('정말 제출하시겠습니까?')) {
+                        fetch('/api/apply', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                plainPassword: passwordInput.value,
+                                realName: realNameInput.value,
+                                idNumber: String(parsedIdNumber),
+                                career: careerInput.value,
+                                reason: reasonInput.value,
+                                skills: skillsInput.value,
+                                other: otherInput.value
+                            })
+                        }).then(r => r.json()).then(result => {
+                            if (result.ok) alert('정상 처리되었습니다.');
+                            else alert('오류: '+result.message);
+                        }).catch(reason => {
+                            alert('전송중 오류가 발생했습니다. 다시 시도해주십시오.');
+                            console.log(reason);
+                        });
+                    }
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

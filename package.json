@@ -1,0 +1,14 @@
+{
+  "name": "qubit_website",
+  "version": "1.0.0",
+  "description": "Qubit Programming Club - Membership Application Website",
+  "main": "index.js",
+  "repository": "https://github.com/IOU-KR/qubit_website",
+  "author": "IOU-KR",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "geoip-lite": "^1.4.10"
+  }
+}
