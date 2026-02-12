@@ -39,6 +39,7 @@
         <div class="header">동아리 가입 신청서</div>
         <br>
         <div hidden id="closed" class="text_container" style="color: red;">현재 입부신청이 마감된 상태입니다.</div><br>
+        <div id="deadline" class="text_container text_small" style="color: grey;"></div>
         <div class="text_container">신청서 작성시 유의사항</div><br>
         <div class="text_container text_small" style="color: red;">1. 허위 정보 기재 시 불이익이 발생할 수 있습니다.</div>
         <div class="text_container text_small" style="color: red;">2. 언어 모델(예: GPT) 사용 시 불이익이 있을 수 있습니다. 솔직하게 작성해 주세요.</div>
@@ -84,6 +85,7 @@
             const otherInput = document.getElementById('other');
             const submitButton = document.getElementById('submit');
             const closedDiv = document.getElementById('closed');
+            const deadlineDiv = document.getElementById('deadline');
 
             window.addEventListener('beforeunload', event => {
                 if (realNameInput.value || idNumberInput.value || passwordInput.value || careerInput.value || reasonInput.value || skillsInput.value || otherInput.value) {
@@ -97,6 +99,7 @@
                 const deadline = new Date(response.deadline);
                 const result = new Date(response.result);
                 
+                deadlineDiv.textContent = '마감: '+deadline.toLocaleString();
                 if (Date.now() > deadline.getTime()) {
                     closed = true;
                     closedDiv.hidden = false;
