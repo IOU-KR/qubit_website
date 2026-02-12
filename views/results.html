@@ -39,6 +39,7 @@
     <div id="container" style="overflow-x: hidden;">
         <div class="header">결과 및 신청서 조회</div>
         <div hidden id="not-published" class="text_container" style="color: red;">아직 결과 발표 시간이 아닙니다. 신청서 조회만 가능합니다.</div><br>
+        <div id="result-date" class="text_container text_small" style="color: grey;"></div>
         <br>
         <div class="text_container text_small">
             아래에 이름과 학반번호, 비밀번호를 입력하고 조회하기를 눌러주세요.<br>
@@ -88,6 +89,7 @@
         const resultDiv = document.getElementById('result');
         const message = document.getElementById('message');
         const notPublishedDiv = document.getElementById('not-published');
+        const resultDateDiv = document.getElementById('result-date');
 
         const careerInput = document.getElementById('career');
         const reasonInput = document.getElementById('reason');
@@ -99,6 +101,7 @@
             const deadline = new Date(response.deadline);
             const result = new Date(response.result);
             
+            resultDateDiv.textContent = '결과 공개: '+result.toLocaleString();
             if (Date.now() > result.getTime()) {
                 published = true;
             } else {
